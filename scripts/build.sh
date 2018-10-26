@@ -30,10 +30,10 @@ done
 
 curl -fOL "https://s3-eu-west-1.amazonaws.com/ledger-ledgerlive-resources-dev/public_resources/appimagetool-x86_64.AppImage"
 
-./"$PACKAGE_NAME"-"$PACKAGE_VERSION"-linux-x86_64.AppImage --appimage-extract
+./"$PACKAGE_NAME"-"$PACKAGE_VERSION"-x86_64.AppImage --appimage-extract
 cp -a usr/lib/x86_64-linux-gnu/*.so.* squashfs-root/usr/lib
 
 chmod +x appimagetool-x86_64.AppImage
-./appimagetool-x86_64.AppImage squashfs-root "$OLDPWD/dist/$PACKAGE_NAME-$PACKAGE_VERSION-linux-x86_64.AppImage"
+./appimagetool-x86_64.AppImage squashfs-root "$OLDPWD/dist/$PACKAGE_NAME-$PACKAGE_VERSION-x86_64.AppImage"
 
 popd
