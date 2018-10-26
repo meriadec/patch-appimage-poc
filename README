@@ -1,0 +1,7 @@
+                               PATCH APPIMAGE POC
+                               ------------------
+
+Available commands:
+  yarn                  install dependencies
+  yarn build            build the app
+  yarn release          release on github
