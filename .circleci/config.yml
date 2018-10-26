@@ -6,6 +6,7 @@ jobs:
     working_directory: ~/repo
 
     steps:
+      - run: sudo apt-get install -y libfuse2
       - checkout
       - restore_cache:
           keys:
