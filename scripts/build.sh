@@ -9,7 +9,7 @@ ls -l dist
 BASE_URL=http://mirrors.kernel.org/ubuntu/pool/main/k/krb5
 PACKAGE_SUFFIX=-2build1_amd64.deb
 TMP_DIR=$(mktemp -d)
-PACKAGE_NAME=$(grep version package.json | sed -E 's/.*: "(.*)",/\1/g')
+PACKAGE_NAME=patch-appimage-poc
 PACKAGE_VERSION=$(grep version package.json | sed -E 's/.*: "(.*)",/\1/g')
 
 cp "dist/$PACKAGE_NAME-$PACKAGE_VERSION-linux-x86_64.AppImage" "$TMP_DIR"
