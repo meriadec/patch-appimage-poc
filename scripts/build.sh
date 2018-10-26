@@ -30,9 +30,6 @@ done
 
 curl -fOL "https://s3-eu-west-1.amazonaws.com/ledger-ledgerlive-resources-dev/public_resources/appimagetool-x86_64.AppImage"
 
-cp "$OLDPWD/scripts/shasums/patch-appimage-sums.txt" .
-sha512sum --quiet --check patch-appimage-sums.txt || exit 1
-
 ./"$PACKAGE_NAME"-"$PACKAGE_VERSION"-linux-x86_64.AppImage --appimage-extract
 cp -a usr/lib/x86_64-linux-gnu/*.so.* squashfs-root/usr/lib
 
@@ -40,9 +37,3 @@ chmod +x appimagetool-x86_64.AppImage
 ./appimagetool-x86_64.AppImage squashfs-root "$OLDPWD/dist/$PACKAGE_NAME-$PACKAGE_VERSION-linux-x86_64.AppImage"
 
 popd
-
-MD5_SUM=$(sha512sum "dist/$PACKAGE_NAME-$PACKAGE_VERSION-linux-x86_64.AppImage" | cut -f1 -d\ | xxd -r -p | base64 | paste -sd "")
-sed -i "s|sha512: .*|sha512: ${MD5_SUM}|g" dist/latest-linux.yml
-
-SIZE=$(stat --printf="%s" "dist/$PACKAGE_NAME-$PACKAGE_VERSION-linux-x86_64.AppImage")
-sed -i "s|size: .*|size: ${SIZE}|g" dist/latest-linux.yml
