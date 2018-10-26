@@ -5,7 +5,7 @@
   "scripts": {
     "dev": "electron-webpack dev",
     "compile": "electron-webpack",
-    "build": "yarn compile && electron-builder",
+    "build": "bash scripts/build.sh",
     "release": "yarn compile && electron-builder --publish always"
   },
   "dependencies": {
