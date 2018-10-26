@@ -12,7 +12,7 @@ TMP_DIR=$(mktemp -d)
 PACKAGE_NAME=patch-appimage-poc
 PACKAGE_VERSION=$(grep version package.json | sed -E 's/.*: "(.*)",/\1/g')
 
-cp "dist/$PACKAGE_NAME-$PACKAGE_VERSION-linux-x86_64.AppImage" "$TMP_DIR"
+cp "dist/$PACKAGE_NAME-$PACKAGE_VERSION-x86_64.AppImage" "$TMP_DIR"
 pushd "$TMP_DIR"
 
 declare -a LIBRARIES=(
