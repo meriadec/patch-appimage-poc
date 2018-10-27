@@ -1,9 +1,8 @@
 version: 2
 jobs:
   build:
-    docker:
-      machine:
-        - image: circleci/node:8.11.3-stretch-browsers
+    machine:
+      - image: circleci/node:8.11.3-stretch-browsers
     working_directory: ~/repo
 
     steps:
